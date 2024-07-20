@@ -1,0 +1,54 @@
+{
+	"name": "patdx-remix-template",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"scripts": {
+		"build": "remix vite:build",
+		"deploy": "wrangler pages deploy",
+		"dev": "remix vite:dev",
+		"start": "wrangler pages dev",
+		"typecheck": "tsc",
+		"typegen": "wrangler types",
+		"update-react": "pnpm install --save-exact react@rc react-dom@rc",
+		"lint": "biome lint",
+		"lint:fix": "biome lint --fix",
+		"format": "biome format --write"
+	},
+	"dependencies": {
+		"@remix-run/cloudflare": "2.10.3",
+		"@remix-run/cloudflare-pages": "2.10.3",
+		"@remix-run/react": "2.10.3",
+		"isbot": "5.1.13",
+		"react": "19.0.0-rc-512b09b2-20240718",
+		"react-dom": "19.0.0-rc-512b09b2-20240718"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@cloudflare/workers-types": "4.20240512.0",
+		"@remix-run/dev": "2.10.3",
+		"@types/react": "npm:types-react@rc",
+		"@types/react-dom": "npm:types-react-dom@rc",
+		"@typescript-eslint/eslint-plugin": "6.7.4",
+		"@typescript-eslint/parser": "6.7.4",
+		"autoprefixer": "10.4.19",
+		"postcss": "8.4.38",
+		"tailwindcss": "3.4.4",
+		"typescript": "5.1.6",
+		"unplugin-auto-import": "0.18.0",
+		"vite": "5.1.0",
+		"vite-tsconfig-paths": "4.2.1",
+		"wrangler": "3.65.1"
+	},
+	"engines": {
+		"node": ">=20.0.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": ["better-sqlite3"],
+		"overrides": {
+			"@types/react": "$@types/react",
+			"@types/react-dom": "$@types/react-dom"
+		}
+	},
+	"packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
+}
