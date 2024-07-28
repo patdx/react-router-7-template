@@ -1,26 +1,26 @@
 {
-	"javascript": {
-		"globals": [
-			"createRef",
-			"forwardRef",
-			"lazy",
-			"memo",
-			"startTransition",
-			"useCallback",
-			"useContext",
-			"useDebugValue",
-			"useDeferredValue",
-			"useEffect",
-			"useId",
-			"useImperativeHandle",
-			"useInsertionEffect",
-			"useLayoutEffect",
-			"useMemo",
-			"useReducer",
-			"useRef",
-			"useState",
-			"useSyncExternalStore",
-			"useTransition"
-		]
-	}
+  "javascript": {
+    "globals": [
+      "createRef",
+      "forwardRef",
+      "lazy",
+      "memo",
+      "startTransition",
+      "useCallback",
+      "useContext",
+      "useDebugValue",
+      "useDeferredValue",
+      "useEffect",
+      "useId",
+      "useImperativeHandle",
+      "useInsertionEffect",
+      "useLayoutEffect",
+      "useMemo",
+      "useReducer",
+      "useRef",
+      "useState",
+      "useSyncExternalStore",
+      "useTransition"
+    ]
+  }
 }

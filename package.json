@@ -20,25 +20,23 @@
 		"@remix-run/cloudflare-pages": "2.10.3",
 		"@remix-run/react": "2.10.3",
 		"isbot": "5.1.13",
-		"react": "19.0.0-rc-512b09b2-20240718",
-		"react-dom": "19.0.0-rc-512b09b2-20240718"
+		"react": "rc",
+		"react-dom": "rc"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
-		"@cloudflare/workers-types": "4.20240512.0",
+		"@cloudflare/workers-types": "4.20240725.0",
 		"@remix-run/dev": "2.10.3",
 		"@types/react": "npm:types-react@rc",
 		"@types/react-dom": "npm:types-react-dom@rc",
-		"@typescript-eslint/eslint-plugin": "6.7.4",
-		"@typescript-eslint/parser": "6.7.4",
 		"autoprefixer": "10.4.19",
-		"postcss": "8.4.38",
-		"tailwindcss": "3.4.4",
-		"typescript": "5.1.6",
-		"unplugin-auto-import": "0.18.0",
-		"vite": "5.1.0",
-		"vite-tsconfig-paths": "4.2.1",
-		"wrangler": "3.65.1"
+		"postcss": "8.4.40",
+		"tailwindcss": "3.4.7",
+		"typescript": "5.5.4",
+		"unplugin-auto-import": "0.18.2",
+		"vite": "5.3.5",
+		"vite-tsconfig-paths": "4.3.2",
+		"wrangler": "3.67.1"
 	},
 	"engines": {
 		"node": ">=20.0.0"
