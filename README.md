@@ -1,5 +1,15 @@
 # patdx-remix-template
 
+## Create a new project from this template
+
+This will copy the code in `main` branch to a new directory.
+
+```
+npx degit patdx/patdx-remix-template
+```
+
+## Summary
+
 This is a template for Remix apps with the following features already set up:
 
 - Cloudflare Pages Functions deployment using wrangler.toml
