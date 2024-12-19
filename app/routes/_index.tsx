@@ -1,41 +1,20 @@
-import type { MetaFunction } from '@remix-run/cloudflare';
+import { getMyAppLoadContext } from '~/.server/context'
+import { Welcome } from '../welcome/welcome'
+import type { Route } from './+types/_index'
 
-export const meta: MetaFunction = () => {
+export function meta({}: Route.MetaArgs) {
 	return [
-		{ title: 'New Remix App' },
-		{
-			name: 'description',
-			content: 'Welcome to Remix on Cloudflare!',
-		},
-	];
-};
+		{ title: 'New React Router App' },
+		{ name: 'description', content: 'Welcome to React Router!' },
+	]
+}
 
-export default function Index() {
-	return (
-		<div className="font-sans p-4">
-			<h1 className="text-3xl">Welcome to Remix on Cloudflare</h1>
-			<ul className="list-disc mt-4 pl-6 space-y-2">
-				<li>
-					<a
-						className="text-blue-700 underline visited:text-purple-900"
-						target="_blank"
-						href="https://remix.run/docs"
-						rel="noreferrer"
-					>
-						Remix Docs
-					</a>
-				</li>
-				<li>
-					<a
-						className="text-blue-700 underline visited:text-purple-900"
-						target="_blank"
-						href="https://developers.cloudflare.com/pages/framework-guides/deploy-a-remix-site/"
-						rel="noreferrer"
-					>
-						Cloudflare Pages Docs - Remix guide
-					</a>
-				</li>
-			</ul>
-		</div>
-	);
+export function loader({}: Route.LoaderArgs) {
+	const { env } = getMyAppLoadContext()
+
+	return { message: env.VALUE_FROM_CLOUDFLARE }
+}
+
+export default function Home({ loaderData }: Route.ComponentProps) {
+	return <Welcome message={loaderData.message} />
 }

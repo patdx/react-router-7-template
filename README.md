@@ -10,41 +10,50 @@ npx degit patdx/patdx-remix-template
 
 ## Summary
 
-This is a template for Remix apps with the following features already set up:
+This is a template for React Router 7 (Remix) apps with the following features already set up:
 
 - Cloudflare Pages Functions deployment using wrangler.toml
-- React 19 RC
-- Biome linting
+- React 19
 - Auto import plugin with React imports set up
 - Tailwind CSS
 
-- 📖 [Remix docs](https://remix.run/docs)
-- 📖 [Remix Cloudflare docs](https://remix.run/guides/vite#cloudflare)
+It is largely based on the [React Router 7 Cloudflare D1 Template](https://github.com/remix-run/react-router-templates/tree/main/cloudflare-d1) but using Cloudflare Pages instead of the new Cloudflare Worker Assets feature, and a different plugin to use Worker Proxy mode instead of the Vite Environments API.
+
+## Adding Node-targeted modules
+
+If you need to use a module that is targeted for Node, try adding `nodejs_compat` to the wrangler.json:
+
+```json
+{
+  "compatibility_flags": ["nodejs_compat"]
+}
+```
+
+And add the module to the SSR externals list in vite.config.ts:
+
+```diff
+    ssr: {
+      external: [
+        'node:async_hooks',
++       'nodemailer',
+      ],
+    },
+```
 
 ## Development
 
 Run the dev server:
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
 To run Wrangler:
 
 ```sh
-npm run build
-npm run start
+pnpm build
+pnpm start
 ```
-
-## Typegen
-
-Generate types for your Cloudflare bindings in `wrangler.toml`:
-
-```sh
-npm run typegen
-```
-
-You will need to rerun typegen whenever you make changes to `wrangler.toml`.
 
 ## Deployment
 
@@ -55,13 +64,13 @@ You will need to rerun typegen whenever you make changes to `wrangler.toml`.
 First, build your app for production:
 
 ```sh
-npm run build
+pnpm build
 ```
 
 Then, deploy your app to Cloudflare Pages:
 
 ```sh
-npm run deploy
+pnpm run deploy
 ```
 
 [bindings]: https://developers.cloudflare.com/pages/functions/bindings/
