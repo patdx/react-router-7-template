@@ -9,12 +9,6 @@ import cloudflareAdapter from '@hono/vite-dev-server/cloudflare'
 
 export default defineConfig(({ isSsrBuild }) => ({
 	build: {
-		...(isSsrBuild
-			? {
-					emitAssets: false,
-					ssrEmitAssets: false,
-				}
-			: {}),
 		rollupOptions: isSsrBuild
 			? {
 					input: './workers/app.ts',
@@ -62,13 +56,3 @@ export default defineConfig(({ isSsrBuild }) => ({
 		tsconfigPaths(),
 	],
 }))
-
-const x = {
-	ssr: {
-		external: [
-			// test
-			'node:async_hooks',
-			'nodemailer',
-		],
-	},
-}
