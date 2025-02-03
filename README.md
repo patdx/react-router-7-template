@@ -1,4 +1,6 @@
-# patdx-remix-template
+# react-router-7-template
+
+Previously called `patdx-remix-template`
 
 ## Create a new project from this template
 
