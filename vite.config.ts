@@ -1,11 +1,10 @@
-import { reactRouter } from '@react-router/dev/vite'
-import autoprefixer from 'autoprefixer'
-import tailwindcss from 'tailwindcss'
-import { defineConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
-import AutoImport from 'unplugin-auto-import/vite'
 import * as honoViteDevServer from '@hono/vite-dev-server'
 import cloudflareAdapter from '@hono/vite-dev-server/cloudflare'
+import { reactRouter } from '@react-router/dev/vite'
+import tailwindcss from '@tailwindcss/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig(({ isSsrBuild }) => ({
 	build: {
@@ -14,11 +13,6 @@ export default defineConfig(({ isSsrBuild }) => ({
 					input: './workers/app.ts',
 				}
 			: undefined,
-	},
-	css: {
-		postcss: {
-			plugins: [tailwindcss, autoprefixer],
-		},
 	},
 	ssr: {
 		target: 'webworker',
@@ -54,5 +48,6 @@ export default defineConfig(({ isSsrBuild }) => ({
 		}),
 		reactRouter(),
 		tsconfigPaths(),
+		tailwindcss(),
 	],
 }))
