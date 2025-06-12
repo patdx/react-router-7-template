@@ -1,11 +1,7 @@
 import { createRequestHandler } from 'react-router'
-import {
-	MyAppLoadContext,
-	type MyCloudflareEnvironment,
-} from '~/.server/context'
+import { MyAppLoadContext } from '~/.server/context'
 
 const requestHandler = createRequestHandler(
-	// @ts-expect-error - virtual module provided by React Router at build time
 	() => import('virtual:react-router/server-build'),
 	import.meta.env.MODE,
 )
@@ -22,4 +18,4 @@ export default {
 			requestHandler(request, myAppLoadContext),
 		)
 	},
-} satisfies ExportedHandler<MyCloudflareEnvironment>
+} satisfies ExportedHandler<Cloudflare.Env>

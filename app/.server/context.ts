@@ -1,12 +1,8 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
 
-export interface MyCloudflareEnvironment {
-	VALUE_FROM_CLOUDFLARE: string
-}
-
 export interface MyAppLoadContext {
 	request: Request
-	env: MyCloudflareEnvironment
+	env: Cloudflare.Env
 	executionCtx: ExecutionContext
 	[key: string]: unknown
 }
