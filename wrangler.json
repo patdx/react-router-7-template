@@ -18,6 +18,6 @@
   "assets": {
     "directory": "./build/client/",
     "binding": "ASSETS",
-    "run_worker_first": ["!/assets/*"]
+    "run_worker_first": ["/*", "!/favicon.ico", "!/assets/*"]
   }
 }
