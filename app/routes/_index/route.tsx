@@ -1,4 +1,4 @@
-import { getMyAppLoadContext } from '~/.server/context'
+import { getMyRequestContext } from '~/.server/context'
 import type { Route } from './+types/route'
 
 export function meta({}: Route.MetaArgs) {
@@ -9,20 +9,18 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export function loader({}: Route.LoaderArgs) {
-	const { env } = getMyAppLoadContext()
+	const { env } = getMyRequestContext()
 
-	return { message: env.VALUE_FROM_CLOUDFLARE }
+	return { message: env?.VALUE_FROM_CLOUDFLARE }
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
 	return (
 		<div className="font-sans max-w-2xl mx-auto p-8 text-center">
-			<h1 className="text-4xl text-blue-600 mb-4">
-				React Router 7 Template
-			</h1>
+			<h1 className="text-4xl text-blue-600 mb-4">React Router 7 Template</h1>
 			<p className="text-lg text-gray-700 mb-8">
-				A minimal starter template for building applications with React Router 7.
-				This template provides a solid foundation for your routing needs.
+				A minimal starter template for building applications with React Router
+				7. This template provides a solid foundation for your routing needs.
 			</p>
 			<a
 				href="https://github.com/patdx/react-router-7-template"

@@ -6,6 +6,8 @@ export default {
 	ssr: true,
 	future: {
 		unstable_optimizeDeps: true,
-		// unstable_viteEnvironmentApi: true,
+		unstable_viteEnvironmentApi: true,
+		unstable_middleware: true,
 	},
+	prerender: ['/'],
 } satisfies Config

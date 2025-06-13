@@ -1,20 +1,25 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
+import {
+	unstable_createContext,
+	type unstable_InitialContext,
+} from 'react-router'
 
-export interface MyAppLoadContext {
+export const MyInitialContext = new AsyncLocalStorage<unstable_InitialContext>()
+
+export interface MyRequestContext {
 	request: Request
 	env: Cloudflare.Env
 	executionCtx: ExecutionContext
-	[key: string]: unknown
 }
 
-declare module 'react-router' {
-	interface AppLoadContext extends MyAppLoadContext {}
-}
+export const myRequestContext = unstable_createContext<MyRequestContext>()
 
-export const MyAppLoadContext = new AsyncLocalStorage<MyAppLoadContext>()
+export function getMyRequestContext(): Partial<MyRequestContext> {
+	const ctx = MyInitialContext.getStore()
 
-export function getMyAppLoadContext() {
-	const ctx = MyAppLoadContext.getStore()
-	if (!ctx) throw new Error('MyAppLoadContext not found')
-	return ctx
+	const requestContext = ctx?.get(myRequestContext) as
+		| MyRequestContext
+		| undefined
+
+	return requestContext ?? {}
 }
