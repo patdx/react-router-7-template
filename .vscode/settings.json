@@ -8,7 +8,5 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "tailwindCSS.classFunctions": ["tw", "clsx", "cva"],
   "tailwindCSS.experimental.configFile": "app/app.css",
-  "cSpell.words": [
-    "Stylesheet"
-  ],
+  "cSpell.words": ["Stylesheet", "workerd"]
 }

@@ -12,7 +12,7 @@
     "postinstall": "pnpm typegen"
   },
   "dependencies": {
-    "@cloudflare/vite-plugin": "1.7.2",
+    "@cloudflare/vite-plugin": "1.7.5",
     "@react-router/node": "7.6.2",
     "@react-router/serve": "7.6.2",
     "isbot": "5.1.28",
@@ -24,27 +24,29 @@
     "@esbuild-plugins/node-globals-polyfill": "0.2.3",
     "@react-router/dev": "7.6.2",
     "@react-router/fs-routes": "7.6.2",
-    "@tailwindcss/vite": "4.1.10",
-    "@types/node": "24.0.3",
+    "@tailwindcss/vite": "4.1.11",
+    "@types/node": "24.0.4",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "autoprefixer": "10.4.21",
     "esbuild": "0.25.5",
     "postcss": "8.5.6",
-    "prettier": "3.5.3",
+    "prettier": "3.6.1",
     "prettier-plugin-tailwindcss": "0.6.13",
-    "tailwindcss": "4.1.10",
+    "tailwindcss": "4.1.11",
     "typescript": "5.8.3",
     "unplugin-auto-import": "19.3.0",
-    "vite": "6.3.5",
+    "vite": "7.0.0",
     "vite-tsconfig-paths": "5.1.4",
-    "wrangler": "4.20.3"
+    "workerd": "1.20250620.0",
+    "wrangler": "4.22.0"
   },
   "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac",
   "pnpm": {
     "overrides": {
       "esbuild": "$esbuild",
-      "@esbuild-plugins/node-globals-polyfill": "$@esbuild-plugins/node-globals-polyfill"
+      "@esbuild-plugins/node-globals-polyfill": "$@esbuild-plugins/node-globals-polyfill",
+      "workerd": "$workerd"
     },
     "onlyBuiltDependencies": []
   }

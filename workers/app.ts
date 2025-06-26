@@ -7,7 +7,6 @@ import {
 	myRequestContext,
 	type MyRequestContext,
 } from '~/.server/context'
-// import * as serverBuild from 'virtual:react-router/server-build'
 
 const requestHandler = createRequestHandler(
 	() => import('virtual:react-router/server-build'),
