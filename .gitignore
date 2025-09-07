@@ -8,3 +8,7 @@
 # Cloudflare
 .mf
 .wrangler
+
+# Wireit
+.wireit
+*.tsbuildinfo

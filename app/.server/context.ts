@@ -1,10 +1,13 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
 import {
 	unstable_createContext,
-	type unstable_InitialContext,
+	unstable_RouterContextProvider,
 } from 'react-router'
 
-export const MyInitialContext = new AsyncLocalStorage<unstable_InitialContext>()
+// TODO: Fix for latest react-router version
+
+export const MyAsyncContext =
+	new AsyncLocalStorage<unstable_RouterContextProvider>()
 
 export interface MyRequestContext {
 	request: Request
@@ -15,7 +18,7 @@ export interface MyRequestContext {
 export const myRequestContext = unstable_createContext<MyRequestContext>()
 
 export function getMyRequestContext(): Partial<MyRequestContext> {
-	const ctx = MyInitialContext.getStore()
+	const ctx = MyAsyncContext.getStore()
 
 	const requestContext = ctx?.get(myRequestContext) as
 		| MyRequestContext

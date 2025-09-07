@@ -1,9 +1,9 @@
 import {
 	createRequestHandler,
-	type unstable_InitialContext,
+	unstable_RouterContextProvider,
 } from 'react-router'
 import {
-	MyInitialContext,
+	MyAsyncContext,
 	myRequestContext,
 	type MyRequestContext,
 } from '~/.server/context'
@@ -14,16 +14,16 @@ const requestHandler = createRequestHandler(
 )
 export default {
 	fetch(request, env, executionCtx) {
-		const initialContext: unstable_InitialContext = new Map()
+		const reactRouterContext = new unstable_RouterContextProvider()
 
-		initialContext.set(myRequestContext, {
+		reactRouterContext.set(myRequestContext, {
 			request,
 			env,
 			executionCtx,
 		} satisfies MyRequestContext)
 
-		return MyInitialContext.run(initialContext, () =>
-			requestHandler(request, initialContext),
+		return MyAsyncContext.run(reactRouterContext, () =>
+			requestHandler(request, reactRouterContext),
 		)
 	},
 } satisfies ExportedHandler<Cloudflare.Env>
