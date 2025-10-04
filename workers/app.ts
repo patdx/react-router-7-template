@@ -1,7 +1,4 @@
-import {
-	createRequestHandler,
-	unstable_RouterContextProvider,
-} from 'react-router'
+import { createRequestHandler, RouterContextProvider } from 'react-router'
 import {
 	MyAsyncContext,
 	myRequestContext,
@@ -14,7 +11,7 @@ const requestHandler = createRequestHandler(
 )
 export default {
 	fetch(request, env, executionCtx) {
-		const reactRouterContext = new unstable_RouterContextProvider()
+		const reactRouterContext = new RouterContextProvider()
 
 		reactRouterContext.set(myRequestContext, {
 			request,

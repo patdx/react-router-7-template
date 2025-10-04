@@ -7,7 +7,7 @@ export default {
 	future: {
 		unstable_optimizeDeps: true,
 		unstable_viteEnvironmentApi: true,
-		unstable_middleware: true,
+		v8_middleware: true,
 	},
 	prerender: ['/'],
 } satisfies Config
