@@ -2,14 +2,33 @@
   "name": "my-react-router-app",
   "private": true,
   "type": "module",
+  "imports": {
+    "#app/*": [
+      "./app/*",
+      "./app/*.ts",
+      "./app/*.tsx",
+      "./app/*/index.ts"
+    ]
+  },
   "scripts": {
     "build": "wireit",
+    "deploy": "wireit",
     "dev": "wireit",
+    "postinstall": "pnpm typegen",
+    "prepare": "husky",
     "start": "wireit",
     "typecheck": "wireit",
-    "typegen": "wireit",
-    "deploy": "wireit",
-    "postinstall": "pnpm typegen"
+    "typegen": "wireit"
+  },
+  "lint-staged": {
+    "*.json": [
+      "jsonsort",
+      "prettier --write"
+    ],
+    "*.{js,ts,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "1.13.18",
@@ -36,6 +55,9 @@
     "@types/react-dom": "19.2.2",
     "autoprefixer": "10.4.21",
     "esbuild": "0.25.11",
+    "husky": "9.1.7",
+    "json-sort-cli": "4.1.0",
+    "lint-staged": "16.2.6",
     "postcss": "8.5.6",
     "prettier": "3.6.2",
     "prettier-plugin-tailwindcss": "0.7.1",
@@ -48,6 +70,15 @@
     "wireit": "0.14.12",
     "workerd": "1.20251101.0",
     "wrangler": "4.45.3"
+  },
+  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
+  "pnpm": {
+    "onlyBuiltDependencies": [],
+    "overrides": {
+      "@esbuild-plugins/node-globals-polyfill": "$@esbuild-plugins/node-globals-polyfill",
+      "esbuild": "$esbuild",
+      "workerd": "$workerd"
+    }
   },
   "wireit": {
     "build": {
@@ -111,22 +142,5 @@
         ".react-router/**"
       ]
     }
-  },
-  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
-  "pnpm": {
-    "overrides": {
-      "esbuild": "$esbuild",
-      "@esbuild-plugins/node-globals-polyfill": "$@esbuild-plugins/node-globals-polyfill",
-      "workerd": "$workerd"
-    },
-    "onlyBuiltDependencies": []
-  },
-  "imports": {
-    "#app/*": [
-      "./app/*",
-      "./app/*.ts",
-      "./app/*.tsx",
-      "./app/*/index.ts"
-    ]
   }
 }
