@@ -26,7 +26,6 @@
       "prettier --write"
     ],
     "*.{js,ts,jsx}": [
-      "eslint --fix",
       "prettier --write"
     ]
   },

@@ -1,5 +1,6 @@
 import { getMyRequestContext } from '#app/.server/context'
 import { Button } from '#app/components/ui/button'
+import { PlaneIcon } from 'lucide-react'
 import type { Route } from './+types/route'
 
 export function meta({}: Route.MetaArgs) {
@@ -30,7 +31,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
 					rel="noopener noreferrer"
 					className="inline-block rounded-md bg-blue-600 px-6 py-3 text-base text-white no-underline transition-colors duration-300 hover:bg-blue-800"
 				>
-					View on GitHub
+					View on GitHub <PlaneIcon />
 				</a>
 			</Button>
 			<p className="mt-4 text-sm text-gray-500">
