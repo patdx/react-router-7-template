@@ -20,7 +20,7 @@
 
 - React Router imports from `'react-router'`
 - Type imports using `import type { Route } from './+types/route'`
-- Server context imports using `~/.server/context` alias
+- Server context imports using `#app/.server/context` alias
 - Use named imports, no index.ts files
 
 ## React Router 7 Patterns

@@ -11,8 +11,6 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
-    "paths": {
-      "~/*": ["./app/*"]
-    }
+    "allowImportingTsExtensions": true
   }
 }

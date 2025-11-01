@@ -1,4 +1,5 @@
-import { getMyRequestContext } from '~/.server/context'
+import { getMyRequestContext } from '#app/.server/context'
+import { Button } from '#app/components/ui/button'
 import type { Route } from './+types/route'
 
 export function meta({}: Route.MetaArgs) {
@@ -22,14 +23,16 @@ export default function Home({ loaderData }: Route.ComponentProps) {
 				A minimal starter template for building applications with React Router
 				7. This template provides a solid foundation for your routing needs.
 			</p>
-			<a
-				href="https://github.com/patdx/react-router-7-template"
-				target="_blank"
-				rel="noopener noreferrer"
-				className="inline-block rounded-md bg-blue-600 px-6 py-3 text-base text-white no-underline transition-colors duration-300 hover:bg-blue-800"
-			>
-				View on GitHub
-			</a>
+			<Button asChild>
+				<a
+					href="https://github.com/patdx/react-router-7-template"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="inline-block rounded-md bg-blue-600 px-6 py-3 text-base text-white no-underline transition-colors duration-300 hover:bg-blue-800"
+				>
+					View on GitHub
+				</a>
+			</Button>
 			<p className="mt-4 text-sm text-gray-500">
 				Environment Message: {loaderData.message}
 			</p>
