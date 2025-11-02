@@ -25,7 +25,7 @@
       "jsonsort",
       "prettier --write"
     ],
-    "*.{js,ts,jsx}": [
+    "*.{js,ts,jsx,tsx}": [
       "prettier --write"
     ]
   },

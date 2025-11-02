@@ -11,6 +11,11 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "paths": {
+      // While we are using subpath imports, still needed here for
+      // shadcn cli https://github.com/shadcn-ui/ui/issues/2960
+      "#app/*": ["./app/*"]
+    }
   }
 }
